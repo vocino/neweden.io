@@ -15,9 +15,6 @@
     -unless Rails.env.production?
       = noindex
 
-    %meta{name: "msvalidate.01", content: "49A3F6AC88D1F464A4DA106702A7FB89"}
-    %meta{name: "p:domain_verify", content: "80dc938596ee6cc4f253b877495ceb7f"}
-    %meta{property: "twitter:account_id", content: "4503599627750629"}
     %meta{name: "viewport", content: "width=device-width,initial-scale=1,user-scalable=no"}
 
     = render 'layouts/regions/favicon'
@@ -25,7 +22,6 @@
     = stylesheet_link_tag    'application', 'data-turbolinks-track' => true
     - if content_for?(:styles_header)
       = yield :styles_header
-
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     - if content_for?(:scripts_header)
       = yield :scripts_header
