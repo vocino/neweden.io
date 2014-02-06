@@ -1,10 +1,9 @@
 source 'http://rubygems.org'
 
-ruby "1.9.3"
+ruby "2.0.0"
 
 ### Core Gems ###
 gem 'rails', '~> 4.0.2'
-gem 'mysql2'
 
 gem 'turbolinks'
 
@@ -31,8 +30,18 @@ gem 'therubyracer'
 
 
 
+### Production ###
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+
+
 ### Development ###
 group :development do
+  gem 'mysql2'
+
   gem 'guard'
   gem 'guard-rubocop'
   gem 'terminal-notifier-guard'
