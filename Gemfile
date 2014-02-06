@@ -7,7 +7,7 @@ gem 'rails', '~> 4.0.2'
 
 gem 'turbolinks'
 
-gem 'foreman'
+gem 'figaro'
 
 
 
