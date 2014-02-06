@@ -3,10 +3,10 @@ AllCops:
     - Rakefile
     - config.ru
   Excludes:
-    - db/**
-    - config/**
-    - script/**
-    - vendor/**
+    - db/*
+    - config/*
+    - script/*
+    - vendor/*
 LineLength:
   Max: 160
 Encoding:
