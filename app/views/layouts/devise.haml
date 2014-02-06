@@ -1,0 +1,35 @@
+!!!
+/[if lt IE 7 ] <html class="ie6" lang="en">
+/[if IE 7 ] <html class="ie7" lang="en">
+/[if IE 8 ] <html class="ie8" lang="en">
+/ [if (gte IE 9)|!(IE)]><!
+%html{:lang => "en"}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}
+    %title= content_for?(:title) ? yield(:title) : "Preorder.Pro"
+    %meta{:name => "viewport", :content => "width=device-width,initial-scale=1,user-scalable=no"}
+    = noindex
+    = render 'layouts/regions/favicon'
+    = stylesheet_link_tag    'application', 'data-turbolinks-track' => true
+    - if content_for?(:styles_header)
+      = yield :styles_header
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    - if content_for?(:scripts_header)
+      = yield :scripts_header
+    = csrf_meta_tags
+
+    = render 'layouts/modules/livereload'
+
+  %body.page-auth
+    .application.devise
+      %main#auth{role: 'main'}
+        = render 'layouts/modules/flash'
+        .row
+          %h1.logotype
+            = link_to('/', class: 'logotype-link') do
+              Preorder<span class="logotype-dot">.</span><span class="logotype-pro">pro</span>
+        = yield
+
+    - if content_for?(:scripts_footer)
+      = yield :scripts_footer

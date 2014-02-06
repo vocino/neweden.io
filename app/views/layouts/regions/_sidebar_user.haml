@@ -1,0 +1,16 @@
+- if user_signed_in?
+  - content_for :scripts_footer do
+    :coffeescript
+      analytics.identify "#{current_user.id}",
+        email: "#{current_user.email}",
+        created: "#{current_user.created_at}"
+  Signed in as
+  = succeed "." do
+    %strong= current_user.email
+  = link_to 'Edit profile', edit_user_registration_path
+  |
+  = link_to "Sign Out", destroy_user_session_path, method: :delete
+- else
+  = link_to "Create Account", new_user_registration_path
+  |
+  = link_to "Login", new_user_session_path

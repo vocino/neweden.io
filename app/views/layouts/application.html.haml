@@ -1,0 +1,54 @@
+!!!
+/[if lt IE 7 ] <html class="ie6" lang="en">
+/[if IE 7 ] <html class="ie7" lang="en">
+/[if IE 8 ] <html class="ie8" lang="en">
+/ [if (gte IE 9)|!(IE)]><!
+%html{:lang => "en"}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}
+
+    = title site: "NewEden.io", separator: '|', reverse: true, reverse_on_default: true
+    = description default: "EVE Online is a massive multiplayer online game that offers limitless potential to discover, explore and conquer an amazing science fiction universe where you pilot spaceships, fight, trade, and form corporations and alliances with other players."
+    = keywords lowercase: true, default: "eve online, eve, eve online isk, isk making, how to make isk, eve online app"
+
+    -unless Rails.env.production?
+      = noindex
+
+    %meta{name: "msvalidate.01", content: "49A3F6AC88D1F464A4DA106702A7FB89"}
+    %meta{name: "p:domain_verify", content: "80dc938596ee6cc4f253b877495ceb7f"}
+    %meta{property: "twitter:account_id", content: "4503599627750629"}
+    %meta{name: "viewport", content: "width=device-width,initial-scale=1,user-scalable=no"}
+
+    = render 'layouts/regions/favicon'
+
+    = stylesheet_link_tag    'application', 'data-turbolinks-track' => true
+    - if content_for?(:styles_header)
+      = yield :styles_header
+
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    - if content_for?(:scripts_header)
+      = yield :scripts_header
+
+    = csrf_meta_tags
+
+    = render 'layouts/modules/livereload'
+
+  %body
+    .application
+      .title-bar
+        %a.sidebar-button-left{href: "#"}
+          %i.fa.fa-bars
+        %a.sidebar-button-right{href: "#"}
+          %i.fa.fa-cog
+
+      = render 'layouts/regions/sidebar_nav'
+
+      %main#main{role: 'main'}
+        = render 'layouts/modules/flash'
+        = yield
+
+      = render 'layouts/regions/sidebar_user'
+
+    - if content_for?(:scripts_footer)
+      = yield :scripts_footer

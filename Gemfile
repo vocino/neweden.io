@@ -4,10 +4,19 @@ ruby "2.0.0"
 
 ### Core Gems ###
 gem 'rails', '~> 4.0.2'
-
 gem 'turbolinks'
-
 gem 'figaro'
+
+
+
+### Authentication ###
+gem 'devise'
+gem 'omniauth'
+
+
+
+### New Eden APIs ###
+gem 'reve', git: 'git://github.com/lisa/reve.git'
 
 
 
