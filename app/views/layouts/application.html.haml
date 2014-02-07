@@ -31,17 +31,9 @@
     = render 'layouts/modules/livereload'
 
   %body
+    = render 'layouts/modules/flash'
     .application
-      .title-bar
-        %a.sidebar-button-left{href: "#"}
-          %i.fa.fa-bars
-        %a.sidebar-button-right{href: "#"}
-          %i.fa.fa-cog
-
-      = render 'layouts/regions/sidebar_nav'
-
       %main#main{role: 'main'}
-        = render 'layouts/modules/flash'
         = yield
 
       = render 'layouts/regions/sidebar_user'

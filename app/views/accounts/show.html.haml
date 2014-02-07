@@ -7,8 +7,14 @@
   %b Eve verification code:
   = @account.eve_verification_code
 %p
-  %b User:
-  = @account.user_id
+  %ul
+    - @data.each do |char_id, info|
+      %li
+        = info[:character].name
+        - if info[:skill_in_training].skill_in_training
+          is currently training until #{info[:skill_in_training].end_time}
+        - else
+          is not training at the moment.
 
 = link_to 'Edit', edit_account_path(@account)
 \|
