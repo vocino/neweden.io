@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Eve key:
+  = @account.eve_key_id
+%p
+  %b Eve verification code:
+  = @account.eve_verification_code
+%p
+  %b User:
+  = @account.user_id
+
+= link_to 'Edit', edit_account_path(@account)
+\|
+= link_to 'Back', accounts_path
