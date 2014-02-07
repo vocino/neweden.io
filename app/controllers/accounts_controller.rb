@@ -12,11 +12,13 @@ class AccountsController < ApplicationController
   # GET /accounts/1.json
   def show
     @account = current_user.accounts.find(params[:id])
-    api = Reve::API.new(@account.eve_key_id, @account.eve_verification_code)
-    characters = api.characters
+    Rails.cache.fetch([@account.eve_key_id, @account.eve_verification_code], expires: 1.hour) do
+      @api = Reve::API.new(@account.eve_key_id, @account.eve_verification_code)
+    end
+    characters = @api.characters
     @data = {}
     characters.each do |char|
-      @data[char.id] = { character: char, skill_in_training: api.skill_in_training(characterid: char.id) }
+      @data[char.id] = { character: char, skill_in_training: @api.skill_in_training(characterid: char.id) }
     end
   end
 

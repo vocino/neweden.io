@@ -50,6 +50,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    dalli (2.7.0)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -99,6 +100,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (4.7.5)
@@ -203,6 +205,7 @@ PLATFORMS
 DEPENDENCIES
   bourbon
   coffee-rails
+  dalli
   devise
   figaro
   guard
@@ -210,6 +213,7 @@ DEPENDENCIES
   haml-rails
   jbuilder
   jquery-rails
+  memcachier
   modernizr-rails
   mysql2
   neat

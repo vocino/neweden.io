@@ -7,6 +7,10 @@ gem 'rails', '~> 4.0.2'
 gem 'turbolinks'
 gem 'figaro'
 
+# Caching
+gem 'dalli'
+gem 'memcachier'
+
 
 
 ### Authentication ###
