@@ -1,0 +1,17 @@
+%cell-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+table {
+  td.eve_key_id {
+    @extend %cell-truncate;
+  }
+  td.eve_verification_code {
+    @extend %cell-truncate;
+  }
+  td.eve_characters {
+    @extend %cell-truncate;
+  }
+}
